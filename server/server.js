@@ -13,17 +13,28 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
-mongoose.connect("mongodb+srv://admin:admin1234@cluster0.aupz9.mongodb.net/LiveCoding?retryWrites=true&w=majority",{useNewUrlParser: true , useUnifiedTopology: true} )
+mongoose.connect("mongodb+srv://admin:admin1234@cluster0.aupz9.mongodb.net/LiveCoding?retryWrites=true&w=majority",{useNewUrlParser: true , useUnifiedTopology: true},() => {
+    console.log('Connected to MongoDB');
+  } )
 
 
 
 app.use("/register" , require("./routes/register"));
 app.use("/login" , require("./routes/login"));
-app.use("/loggedin" , require("./routes/checkLogged"))
+app.use("/loggedin" , require("./routes/checkLogged"));
+app.use("/getName" , require("./routes/getName"));
+
 
 
 app.get("/",(req,res)=>{
   res.send("hello")
+})
+
+
+app.get("/logout" , (req,res)=>{
+  
+  res.clearCookie("token", { httpOnly: true  , secure : true , sameSite : 'none'});
+  res.json({ message: "LoggedOut" });
 })
 
 

@@ -23,12 +23,13 @@ router.post("/" , async (req,res)=>{
     type : data.type,
     username : data.username,
     password : password,
-    id : userId
+    id : userId,
+    name : data.name
   })
 
 
     await user.save();
-    console.log("User Saved");
+    
     res.json({valid : true , message : "User Registered"})
   }
   catch(e){

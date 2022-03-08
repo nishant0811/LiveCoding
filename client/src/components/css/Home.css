@@ -2,10 +2,14 @@
 
 body{
   background: #E5E3C9;
+  min-height: 100vh;
 }
 
 *{
   font-family: 'Titillium Web', sans-serif;
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .Navigation {
@@ -26,4 +30,68 @@ body{
   margin-right: 16px;
   color : #789395;
   text-decoration:  none;
+}
+
+.home__body{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  width: 80%;
+  margin: auto;
+  padding: 10% 5%;
+}
+
+.home__heading{
+  text-align: center;
+}
+
+.home__heading h2{
+  color : #789395;
+  font-size: 3vw;
+  text-transform: uppercase;
+
+}
+
+.home__img img{
+  width: 80%;
+  margin: auto;
+  border-radius: 32px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.footer_Buttons{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.footer_Buttons div{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer_Buttons a{
+  display: inline-block;
+  border : none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 32px;
+  color : white;
+  background: #B4CFB0;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.5s;
+  border : 1px solid #B4CFB0;
+  margin-right: 32px;
+  text-decoration: none;
+}
+
+.footer_Buttons a:hover{
+  color : #B4CFB0;
+  background: white;
+  transition: 0.5s;
 }

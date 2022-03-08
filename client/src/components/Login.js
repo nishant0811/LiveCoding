@@ -32,7 +32,7 @@ const Login = () => {
     withCredentials: true
   });
     response = response.data;
-    console.log(response);
+
     if(!response.valid){
       setError(!response.valid);
       setErrorMsg(response.message);
@@ -52,16 +52,23 @@ const Login = () => {
 
 useEffect( ()=>{
   let token = localStorage.getItem("token");
-  console.log(token);
+  
   const controller = new AbortController();
   const validateData = async()=>{
-    
-  let valid = await axios.post("http://localhost:5000/loggedin" , { token : token });
+
+    let valid = await axios.get("http://localhost:5000/getName" , {
+      headers : {
+        auth : "Bearer "+ token
+      },
+      withCredentials : true
+    })
   valid = valid.data;
     if(!valid.valid){
       return;
     }
+    localStorage.setItem("token" , valid.token);
     history("/dashboard")
+
   }
   validateData();
 
