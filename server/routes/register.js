@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const Users = require("../models/Users");
+const Prof = require("../models/profModel.js")
+const Student = require("../models/studentModel.js")
 const bcrypt = require("bcryptjs")
 const {v4 : uuidv4} = require('uuid')
 
@@ -29,7 +31,32 @@ router.post("/" , async (req,res)=>{
 
 
     await user.save();
-    
+
+    if(data.type == p){
+      let profDet = new Prof({
+        name : data.name,
+        id : userid,
+        email : data.email,
+        username : data.username,
+        classRoom : []
+      })
+
+      await profDet.save();
+    }
+
+    else {
+      let studDet = new Student({
+        name : data.name,
+        id : userid,
+        email : data.email,
+        username : data.username,
+        classRoom : []
+      })
+
+
+      await studDet.save();
+    }
+
     res.json({valid : true , message : "User Registered"})
   }
   catch(e){

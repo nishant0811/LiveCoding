@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {useState , useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , Link} from 'react-router-dom'
 import axios from 'axios'
 
 const Dashboard = (props) => {
@@ -50,6 +50,21 @@ const Dashboard = (props) => {
         <a href="#" onClick={handleLogout}>Log Out</a>
       </div>
       <h2>Welcome , {name}</h2>
+
+      <div className = "classes__contianer">
+        <div className="classes__header">
+          <div>
+            <h2>
+              List Of Class Room
+            </h2>
+          </div>
+          <div>
+            <Link to="/createClass">
+              Create Class Room
+            </Link>
+          </div>
+        </div>
+      </div>
       </div>
   )
 }

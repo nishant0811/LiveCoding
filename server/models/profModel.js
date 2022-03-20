@@ -5,7 +5,7 @@ const ProfSchema = mongoose.Schema({
   id : String,
   email : String,
   username : String,
-  password : String
+  classRoom : Array
 })
 
-module.exports = mongoose.model('profDetails' ,)
+module.exports = mongoose.model('profDetails', ProfSchema)

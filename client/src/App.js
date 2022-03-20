@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Dashboard from "./components/Dashboard"
+import CreateClass from "./components/CreateClass"
 import NotFound from "./components/NotFound"
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/Login" element = {<Login />} />
         <Route path="/Register" element = {<Register />} />
         <Route path="/Dashboard" element = {<Dashboard/>} />
+        <Route path="/createClass" element = {<CreateClass/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
