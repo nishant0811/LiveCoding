@@ -1,6 +1,6 @@
 import {useState , useEffect } from 'react';
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom';
+import {useNavigate , Link} from 'react-router-dom';
 
 import "./css/Login.css"
 const Login = () => {
@@ -42,6 +42,7 @@ const Login = () => {
     }
 
     localStorage.setItem("token" , response.token);
+    localStorage.setItem("userid" , response.userid)
     history("/dashboard")
     setDisabled(false);
     setButton("Login");
@@ -52,7 +53,7 @@ const Login = () => {
 
 useEffect( ()=>{
   let token = localStorage.getItem("token");
-  
+
   const controller = new AbortController();
   const validateData = async()=>{
 
@@ -87,7 +88,12 @@ useEffect( ()=>{
     }
       <input type="text" value={username} placeholder="Username " onChange={updateUserName} />
       <input type="password" value={password} placeholder="Password " onChange={updatePass} />
-      <button type="Submit" disabled = {disabled}>{button}</button>
+      <div className="inputButs">
+        <button type="Submit" disabled = {disabled}>{button}</button>
+        <Link to="/Register">
+          Sign Up
+        </Link>
+      </div>
     </form>
 
     </div>

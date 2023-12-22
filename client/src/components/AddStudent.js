@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , useParams} from 'react-router-dom'
 
 import axios from 'axios'
 
 import "./css/CreateClass.css"
 
-const CreateClass = () => {
+const AddStudent = () => {
+
+  let {id} = useParams()
 
   const history = useNavigate();
 
@@ -18,13 +20,19 @@ const CreateClass = () => {
   }
 
   const handleSubmit = async ()=>{
+
+      if(className.length == 0){
+        alert("Enter a Name");
+        return;
+      }
       const payload ={
-        clsname : className
+        studName: className,
+        clsid : id
       }
 
       let token = localStorage.getItem("token")
 
-      let response = await axios.post("http://localhost:5000/class/create" , payload ,{
+      let response = await axios.post("http://localhost:5000/class/add" , payload ,{
         headers : {
           auth : "Bearer "+token
         },
@@ -39,7 +47,7 @@ const CreateClass = () => {
         return;
       }
 
-      history("/dashboard")
+      history("/details/"+id)
   }
 
 
@@ -47,20 +55,20 @@ const CreateClass = () => {
         <div>
           <div className="createClass heading">
             <h2>
-              Create A Classroom
+              Add A Student To The Classroom
             </h2>
           </div>
 
           <div className="inputs__classname">
-            <input type="text" value={className} name="className" placeholder="Class Name" onChange = {handeInputChange}>
+            <input type="text" value={className} name="StudentName" placeholder="Student Username" onChange = {handeInputChange}>
             </input>
 
             <button onClick = {handleSubmit}>
-              Create
+              Add Student
             </button>
           </div>
         </div>
   )
 }
 
-export default CreateClass
+export default AddStudent

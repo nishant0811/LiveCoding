@@ -30,12 +30,12 @@ router.post("/" , async (req,res)=>{
   })
 
 
-    await user.save();
 
-    if(data.type == p){
+
+    if(data.type == "p"){
       let profDet = new Prof({
         name : data.name,
-        id : userid,
+        id : userId,
         email : data.email,
         username : data.username,
         classRoom : []
@@ -47,7 +47,7 @@ router.post("/" , async (req,res)=>{
     else {
       let studDet = new Student({
         name : data.name,
-        id : userid,
+        id : userId,
         email : data.email,
         username : data.username,
         classRoom : []
@@ -56,6 +56,8 @@ router.post("/" , async (req,res)=>{
 
       await studDet.save();
     }
+
+      await user.save();
 
     res.json({valid : true , message : "User Registered"})
   }

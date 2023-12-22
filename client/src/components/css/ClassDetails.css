@@ -1,0 +1,59 @@
+.clsDet__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 64px;
+}
+
+
+.clsDet__header a{
+  display: inline-block;
+
+  padding: 16px;
+  border-radius: 8px;
+  background: #222831;
+  color : #F8EDE3;
+  text-decoration: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  margin-right: 8px;
+}
+
+
+
+.student__container{
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 32px;
+}
+
+.studnt{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border : 1px solid #00ADB5;
+  border-radius: 8px;
+  padding: 16px 32px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.student__code a{
+  display: inline-block;
+  padding: 6px 24px;
+  color : #EEEEEE;
+  background: #00ADB5;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: 0.5s;
+  border : 1px solid #00ADB5;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.student__code a:hover{
+  color : #00ADB5;
+  background: #EEEEEE;
+  transition: 0.5s;
+}

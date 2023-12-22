@@ -43,7 +43,7 @@ router.post("/" , async(req,res)=>{
     const reftoken = await jwt.sign(payload, "mysecretKEY", {algorithm : 'HS256' , expiresIn : "7d"});
     const accessToken = await jwt.sign(payload, "SECRET" , {algorithm : 'HS256' , expiresIn : "10m"});
     await res.cookie("token",reftoken,{ httpOnly: true  , secure : true , sameSite : 'none' , maxAge : 604800000});
-    res.json({valid : true , message : "Okay" , token : accessToken})
+    res.json({valid : true , message : "Okay" , token : accessToken , userid : user.id})
 
   }
 

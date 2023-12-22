@@ -1,0 +1,39 @@
+.createClass.heading{
+  text-align: center;
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+
+.inputs__classname{
+  width: 60%;
+  margin: auto;
+}
+
+
+.inputs__classname input{
+  width: 100%;
+  border : none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid #798777;
+  margin-bottom: 16px;
+  margin-top: 64px;
+}
+
+
+.inputs__classname button{
+  text-align: center;
+  display: block;
+  margin: auto;
+  padding: 8px 16px;
+  border : none;
+  outline: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color : #EEEEEE;
+  background: #00ADB5;
+  border : 1px solid #00ADB5;
+  text-decoration: none;
+  cursor: pointer;
+}

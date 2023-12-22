@@ -11,7 +11,7 @@ router.get("/", tokenGenerator , userAuth , async (req,res)=>{
       if(user.name)
       uname = user.name;
 
-      res.json({valid : true , message : "Okay" , token : req.jwtToken , name : uname})
+      res.json({valid : true , message : "Okay" , token : req.jwtToken , name : uname , type : user.type})
 
     }
     catch(e){

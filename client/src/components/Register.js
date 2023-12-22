@@ -2,7 +2,7 @@
 import React from 'react'
 import {useState} from 'react';
 import axios from 'axios'
-import  { useNavigate } from 'react-router-dom'
+import  { useNavigate , Link} from 'react-router-dom'
 
 import "./css/Registration.css"
 
@@ -92,7 +92,12 @@ const Register = () => {
         <input type="password" name="password" value={password} placeholder="Password" onChange={updatePassword} />
         <input type="password" name="cpassword" value={cpass} placeholder="Confirm password" onChange={updateCpass} />
         <input type="text" name="email" value={email} placeholder="Email" onChange={updateEmail} />
+        <div className="inputButs">
         <button type="submit" name="button" disabled={disabled} >{buton}</button>
+        <Link className="inputButs" to="/Login">
+          Sign In
+        </Link>
+      </div>
       </form>
 
     </div>
